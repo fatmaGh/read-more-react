@@ -1,38 +1,83 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  width: 1200px;
+  flex-wrap: wrap;
+}
+.card{
+  position: relative;
+  width: 300px;
+  padding: 20px;
+  margin: 20px;
+  background-color: #3f3f3f;
+}
+.card::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 20px solid transparent;
+  border-top: 20px solid #00c4e2;
+  border-right: 20px solid #00c4e2;
+}
+.icon img{
+  margin-bottom: 10px;
+}
+.content{
+  position: relative;
+  height: 215px;
+  overflow: hidden;
+  line-height: 1.6em;
+}
+.content::before{
+  content: '';
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: 100px;
+  background: linear-gradient(transparent, #3f3f3f);
+}
+h3{
   color: white;
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-bottom: 10px;
+  line-height: 1.4em;
 }
-
-.App-link {
-  color: #61dafb;
+.content p{
+  font-weight: 300;
+  color: #ccc;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.more{
+  background: #00c4e2;
+  position: relative;
+  padding: 10px 15px;
+  display: inline-block;
+  margin-top: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: white;
+  font-size: 0.9em;
+  font-weight: 400;
+  cursor: pointer;
+}
+.more::before{
+  content: 'Read More';
+}
+.card.active .more::before{
+  content: 'Read Less';
+}
+.card.active .more{
+  background: #FD3F92;
+}
+.card.active::before{    
+  border-top: 20px solid #FD3F92;
+  border-right: 20px solid #FD3F92;
+}
+.card.active .content{
+  height: auto;
+}
+.card.active .content::before{
+  display: none;
 }
